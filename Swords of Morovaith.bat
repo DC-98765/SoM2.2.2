@@ -385,8 +385,8 @@ if %var0% == 7 goto CRAFTINGMENU
 if %var0% == 8 goto FLETCHING
 if %var0% == 9 goto FORAGING
 if %var0% == 11 goto ALCHEMY
-if %var0% == 12 goto DUEL
 if %var0% == 10 goto SMITHING
+if %var0% == 12 goto DUEL
 if %var0% == 13 goto STATS
 if %var0% == 14 goto INVENTORY
 if %var0% == - goto BOSSFIGHT
@@ -1006,10 +1006,9 @@ echo Zach "Toki" - Creator, Coder, Tester, Updates
 echo.
 echo BradleyDS2  - Creator, Coder, Tester, Updates, Game Breaking
 echo.
-echo Jumba       - Tester and Stats
-echo.
 echo DC          - Coder, Tester, Updates  
 echo.
+echo Jumba       - Tester and Stats
 echo.
 echo.
 echo.
@@ -1039,7 +1038,9 @@ echo.
 echo.
 echo.
 echo.
-echo See any bugs? Let us know at www.morovaithrevived.webs.com
+echo.
+echo.
+echo See any bugs? Let us know at github.com/DC-98765/SoM2.2.2
 pause>nul
 goto MENU
 
@@ -3663,9 +3664,10 @@ goto MENU
 cls
 set ACTION=Foraging
 call :ACTION
-echo You have found 3 Herbs!
-set /a HERB+=3
-set /a FORAGEXP+=20
+set /a onetothree=%random% %%3 + 1
+echo You have found %onetothree% Herbs!
+set /a HERB+=%onetothree%
+set /a FORAGEXP+=%onetothree%*10
 call :FORAGELVLCHECK
 pause>nul
 goto FORAGING
@@ -3675,9 +3677,10 @@ cls
 set ACTION=Foraging
 if %FORAGE% LSS 10 ( echo Your Foraging level is not high enough for that & pause>nul & goto FORAGING)
 call :ACTION
-echo You have found 6 Herbs!
-set /a HERB+=6
-set /a FORAGEXP+=40
+set /a onetosix=%random% %%6
+echo You have found %onetosix% Herbs!
+set /a HERB+=%onetosix%
+set /a FORAGEXP+=onetosix*10
 call :FORAGELVLCHECK
 pause>nul
 goto FORAGING
@@ -3687,9 +3690,10 @@ cls
 set ACTION=Foraging
 if %FORAGE% LSS 30 ( echo Your Foraging level is not high enough for that & pause>nul & goto FORAGING)
 call :ACTION
-echo You have found 12 Herbs!
-set /a HERB+=12
-set /a FORAGEXP+=80
+set /a onetotwelve=%random% %%12 + 1
+echo You have found %onetotwelve% Herbs!
+set /a HERB+=%onetotwelve%
+set /a FORAGEXP+=%onetotwelve% * 10
 call :FORAGELVLCHECK
 pause>nul
 goto FORAGING
